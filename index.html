@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UrbanNest — Find Your Dream Home</title>
+  <meta name="description" content="Buy, rent or sell verified properties across India with UrbanNest.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ================= NAVBAR ================= -->
+<header class="navbar">
+  <div class="container nav-inner">
+    <a href="#" class="logo">
+      <span class="logo-mark"><svg viewBox="0 0 24 24"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></span>
+      Urban<b>Nest</b> </a>
+    </a>
+    <input type="checkbox" id="nav-toggle" class="nav-toggle">
+    <label for="nav-toggle" class="hamburger" aria-label="Toggle menu"><span></span></label>
+    <nav class="nav-links">
+      <a href="#search">Buy</a>
+      <a href="#search">Rent</a>
+      <a href="#featured">Properties</a>
+      <a href="#advanced">Search</a>
+      <a href="#agents">Agents</a>
+      <a href="#contact" class="btn btn-dark btn-sm">+ List Property</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ================= HERO + SEARCH ================= -->
+<section class="hero">
+  <div class="container hero-grid">
+    <div class="hero-text">
+      <span class="pill"><i></i> 2,400+ verified properties across India</span>
+      <h1>Find a home that <em>fits</em> your life.</h1>
+      <p class="lead">Buy, rent or sell with confidence. Verified listings, transparent pricing and expert agents who actually pick up the phone.</p>
+      <div class="hero-actions">
+        <a href="#featured" class="btn btn-dark">Explore Properties
+          <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
+        <a href="#agents" class="btn btn-outline">Talk to an Agent</a>
+      </div>
+      <div class="hero-stats">
+        <div><strong>12K+</strong><span>Happy families</span></div>
+        <div><strong>2.4K</strong><span>Live listings</span></div>
+        <div><strong>150+</strong><span>Expert agents</span></div>
+      </div>
+    </div>
+
+    <div class="hero-media">
+      <div class="hero-img" style="--img:url('https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&amp;fit=crop&amp;w=1400&amp;q=80')"></div>
+      <div class="float-card fc-price">
+        <span class="ic"><svg viewBox="0 0 24 24"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></span>
+        <div><small>Homes starting from</small><b>₹45 Lakh</b></div>
+      </div>
+      <div class="float-card fc-agent">
+        <span class="av" style="--img:url('https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&amp;fit=crop&amp;w=120&amp;q=80')"></span>
+        <div><b>Neha is online</b><small>Replies in ~5 minutes</small></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Search card -->
+  <div class="container">
+    <div class="search-card" id="search">
+      <input type="radio" name="mode" id="t-buy" class="mode-radio" checked>
+      <input type="radio" name="mode" id="t-rent" class="mode-radio">
+      <input type="radio" name="mode" id="t-sell" class="mode-radio">
+      <div class="tabs">
+        <label for="t-buy">Buy</label>
+        <label for="t-rent">Rent</label>
+        <label for="t-sell">Sell</label>
+      </div>
+
+      <form class="search-form" action="#">
+        <div class="s-field">
+          <span class="s-icon"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></span>
+          <div>
+            <label for="s-loc">Location</label>
+            <input id="s-loc" type="text" placeholder="City, locality or project">
+          </div>
+        </div>
+        <div class="s-field">
+          <span class="s-icon"><svg viewBox="0 0 24 24"><rect x="4" y="2" width="16" height="20" rx="2"/><path d="M9 22v-4h6v4M8 6h.01M12 6h.01M16 6h.01M8 10h.01M12 10h.01M16 10h.01M8 14h.01M12 14h.01M16 14h.01"/></svg></span>
+          <div>
+            <label for="s-type">Property type</label>
+            <select id="s-type">
+              <option>Apartment</option><option>Villa</option><option>Plot / Land</option>
+              <option>Commercial</option><option>Penthouse</option>
+            </select>
+          </div>
+        </div>
+        <div class="s-field">
+          <span class="s-icon"><svg viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg></span>
+          <div>
+            <label for="s-budget">Budget</label>
+            <select id="s-budget">
+              <option>Any budget</option><option>Under ₹50 L</option><option>₹50 L – ₹1 Cr</option>
+              <option>₹1 Cr – ₹3 Cr</option><option>₹3 Cr+</option>
+            </select>
+          </div>
+        </div>
+        <div class="s-field">
+          <span class="s-icon"><svg viewBox="0 0 24 24"><path d="M2 20v-8a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v8"/><path d="M4 10V6a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v4"/><path d="M12 4v6"/><path d="M2 18h20"/></svg></span>
+          <div>
+            <label for="s-bhk">Bedrooms</label>
+            <select id="s-bhk">
+              <option>Any BHK</option><option>1 BHK</option><option>2 BHK</option>
+              <option>3 BHK</option><option>4+ BHK</option>
+            </select>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-accent">
+          <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          Search
+        </button>
+      </form>
+
+      <div class="popular">
+        <span>Popular:</span>
+        <a href="#featured">3 BHK in Bandra</a>
+        <a href="#featured">Villas in Goa</a>
+        <a href="#featured">Office space Gurugram</a>
+        <a href="#featured">Flats under ₹1 Cr</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CATEGORIES ================= -->
+<section class="categories">
+  <div class="container">
+    <div class="section-head row">
+      <div>
+        <p class="eyebrow">Browse by type</p>
+        <h2>Explore property types</h2>
+      </div>
+      <a href="#featured" class="link">View all types
+        <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </a>
+    </div>
+    <div class="cat-grid">
+      <a href="#featured" class="cat-card">
+        <div class="cat-icon"><svg viewBox="0 0 24 24"><rect x="4" y="2" width="16" height="20" rx="2"/><path d="M9 22v-4h6v4M8 6h.01M12 6h.01M16 6h.01M8 10h.01M12 10h.01M16 10h.01M8 14h.01M12 14h.01M16 14h.01"/></svg></div>
+        <h3>Apartments</h3><p>1,240 properties</p>
+      </a>
+      <a href="#featured" class="cat-card">
+        <div class="cat-icon"><svg viewBox="0 0 24 24"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
+        <h3>Villas</h3><p>386 properties</p>
+      </a>
+      <a href="#featured" class="cat-card">
+        <div class="cat-icon"><svg viewBox="0 0 24 24"><polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"/><line x1="8" y1="2" x2="8" y2="18"/><line x1="16" y1="6" x2="16" y2="22"/></svg></div>
+        <h3>Plots &amp; Land</h3><p>210 properties</p>
+      </a>
+      <a href="#featured" class="cat-card">
+        <div class="cat-icon"><svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg></div>
+        <h3>Commercial</h3><p>452 properties</p>
+      </a>
+      <a href="#featured" class="cat-card">
+        <div class="cat-icon"><svg viewBox="0 0 24 24"><path d="m2 4 3 12h14l3-12-6 7-4-7-4 7-6-7z"/><path d="M5 20h14"/></svg></div>
+        <h3>Penthouses</h3><p>98 properties</p>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FEATURED PROPERTIES ================= -->
+<section id="featured" class="featured">
+  <div class="container">
+    <div class="section-head center">
+      <p class="eyebrow">Featured Properties</p>
+      <h2>Handpicked homes you'll love</h2>
+      <p>Every listing is verified by our team, with real photos, clear pricing and no hidden brokerage.</p>
+    </div>
+
+    <!-- CSS-only filter -->
+    <input type="radio" name="filter" id="f-all" class="f-radio" checked>
+    <input type="radio" name="filter" id="f-sale" class="f-radio">
+    <input type="radio" name="filter" id="f-rent" class="f-radio">
+    <input type="radio" name="filter" id="f-new" class="f-radio">
+    <div class="filters">
+      <label for="f-all">All Properties</label>
+      <label for="f-sale">For Sale</label>
+      <label for="f-rent">For Rent</label>
+      <label for="f-new">New Launch</label>
+    </div>
+
+    <div class="prop-grid">
+
+      <!-- Card 1 -->
+      <article class="prop-card sale">
+        <div class="prop-img" style="--img:url('https://images.unsplash.com/photo-1613490493576-7fde63acd811?auto=format&amp;fit=crop&amp;w=900&amp;q=80')">
+          <div class="badges"><span class="badge b-feat">★ Featured</span><span class="badge b-sale">For Sale</span></div>
+          <label class="fav" aria-label="Save"><input type="checkbox"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></label>
+          <div class="img-meta"><span><svg viewBox="0 0 24 24"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>18</span><span>Ready to move</span></div>
+        </div>
+        <div class="prop-body">
+          <div class="prop-price">₹4.8 Cr <small>₹12,630 / sqft</small></div>
+          <h3><a href="#">Skyline Luxury Villa</a></h3>
+          <p class="prop-loc"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Bandra West, Mumbai</p>
+          <ul class="prop-feats">
+            <li><svg viewBox="0 0 24 24"><path d="M2 20v-8a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v8"/><path d="M4 10V6a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v4"/><path d="M12 4v6"/><path d="M2 18h20"/></svg>4 Beds</li>
+            <li><svg viewBox="0 0 24 24"><path d="M9 6 6.5 3.5a1.5 1.5 0 0 0-1-.5C4.683 3 4 3.683 4 4.5V17a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-5"/><line x1="10" y1="5" x2="8" y2="7"/><line x1="2" y1="12" x2="22" y2="12"/><line x1="7" y1="19" x2="7" y2="21"/><line x1="17" y1="19" x2="17" y2="21"/></svg>5 Baths</li>
+            <li><svg viewBox="0 0 24 24"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/></svg>3,800 sqft</li>
+          </ul>
+        </div>
+        <div class="prop-foot">
+          <div class="agent-mini"><span class="av" style="--img:url('https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&amp;fit=crop&amp;w=120&amp;q=80')"></span><div><b>Rahul Khanna</b><small>Listed 2 days ago</small></div></div>
+          <a href="#" class="btn-icon" aria-label="View property"><svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+        </div>
+      </article>
+
+      <!-- Card 2 -->
+      <article class="prop-card sale new">
+        <div class="prop-img" style="--img:url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&amp;fit=crop&amp;w=900&amp;q=80')">
+          <div class="badges"><span class="badge b-new">New Launch</span><span class="badge b-sale">For Sale</span></div>
+          <label class="fav" aria-label="Save"><input type="checkbox"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></label>
+          <div class="img-meta"><span><svg viewBox="0 0 24 24"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>24</span><span>Possession 2027</span></div>
+        </div>
+        <div class="prop-body">
+          <div class="prop-price">₹3.2 Cr <small>₹10,000 / sqft</small></div>
+          <h3><a href="#">The Glasshouse Residence</a></h3>
+          <p class="prop-loc"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Whitefield, Bengaluru</p>
+          <ul class="prop-feats">
+            <li><svg viewBox="0 0 24 24"><path d="M2 20v-8a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v8"/><path d="M4 10V6a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v4"/><path d="M12 4v6"/><path d="M2 18h20"/></svg>4 Beds</li>
+            <li><svg viewBox="0 0 24 24"><path d="M9 6 6.5 3.5a1.5 1.5 0 0 0-1-.5C4.683 3 4 3.683 4 4.5V17a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-5"/><line x1="10" y1="5" x2="8" y2="7"/><line x1="2" y1="12" x2="22" y2="12"/><line x1="7" y1="19" x2="7" y2="21"/><line x1="17" y1="19" x2="17" y2="21"/></svg>4 Baths</li>
+            <li><svg viewBox="0 0 24 24"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/></svg>3,200 sqft</li>
+          </ul>
+        </div>
+        <div class="prop-foot">
+          <div class="agent-mini"><span class="av" style="--img:url('https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&amp;fit=crop&amp;w=120&amp;q=80')"></span><div><b>Sneha Iyer</b><small>Listed 5 days ago</small></div></div>
+          <a href="#" class="btn-icon" aria-label="View property"><svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+        </div>
+      </article>
+
+      <!-- Card 3 -->
+      <article class="prop-card rent">
+        <div class="prop-img" style="--img:url('https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?auto=format&amp;fit=crop&amp;w=900&amp;q=80')">
+          <div class="badges"><span class="badge b-rent">For Rent</span></div>
+          <label class="fav" aria-label="Save"><input type="checkbox"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></label>
+          <div class="img-meta"><span><svg viewBox="0 0 24 24"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>12</span><span>Fully furnished</span></div>
+        </div>
+        <div class="prop-body">
+          <div class="prop-price">₹45,000 <small>/ month</small></div>
+          <h3><a href="#">Urban Loft Apartment</a></h3>
+          <p class="prop-loc"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Koregaon Park, Pune</p>
+          <ul class="prop-feats">
+            <li><svg viewBox="0 0 24 24"><path d="M2 20v-8a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v8"/><path d="M4 10V6a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v4"/><path d="M12 4v6"/><path d="M2 18h20"/></svg>2 Beds</li>
+            <li><svg viewBox="0 0 24 24"><path d="M9 6 6.5 3.5a1.5 1.5 0 0 0-1-.5C4.683 3 4 3.683 4 4.5V17a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-5"/><line x1="10" y1="5" x2="8" y2="7"/><line x1="2" y1="12" x2="22" y2="12"/><line x1="7" y1="19" x2="7" y2="21"/><line x1="17" y1="19" x2="17" y2="21"/></svg>2 Baths</li>
+            <li><svg viewBox="0 0 24 24"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/></svg>1,250 sqft</li>
+          </ul>
+        </div>
+        <div class="prop-foot">
+          <div class="agent-mini"><span class="av" style="--img:url('https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&amp;fit=crop&amp;w=120&amp;q=80')"></span><div><b>Meera Joshi</b><small>Listed today</small></div></div>
+          <a href="#" class="btn-icon" aria-label="View property"><svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+        </div>
+      </article>
+
+      <!-- Card 4 -->
+      <article class="prop-card sale">
+        <div class="prop-img" style="--img:url('https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&amp;fit=crop&amp;w=900&amp;q=80')">
+          <div class="badges"><span class="badge b-feat">★ Featured</span><span class="badge b-sale">For Sale</span></div>
+          <label class="fav" aria-label="Save"><input type="checkbox"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></label>
+          <div class="img-meta"><span><svg viewBox="0 0 24 24"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>30</span><span>Private pool</span></div>
+        </div>
+        <div class="prop-body">
+          <div class="prop-price">₹6.5 Cr <small>₹12,040 / sqft</small></div>
+          <h3><a href="#">Palm Grove Pool Villa</a></h3>
+          <p class="prop-loc"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Anjuna, North Goa</p>
+          <ul class="prop-feats">
+            <li><svg viewBox="0 0 24 24"><path d="M2 20v-8a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v8"/><path d="M4 10V6a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v4"/><path d="M12 4v6"/><path d="M2 18h20"/></svg>5 Beds</li>
+            <li><svg viewBox="0 0 24 24"><path d="M9 6 6.5 3.5a1.5 1.5 0 0 0-1-.5C4.683 3 4 3.683 4 4.5V17a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-5"/><line x1="10" y1="5" x2="8" y2="7"/><line x1="2" y1="12" x2="22" y2="12"/><line x1="7" y1="19" x2="7" y2="21"/><line x1="17" y1="19" x2="17" y2="21"/></svg>6 Baths</li>
+            <li><svg viewBox="0 0 24 24"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/></svg>5,400 sqft</li>
+          </ul>
+        </div>
+        <div class="prop-foot">
+          <div class="agent-mini"><span class="av" style="--img:url('https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&amp;fit=crop&amp;w=120&amp;q=80')"></span><div><b>Rahul Khanna</b><small>Listed 1 week ago</small></div></div>
+          <a href="#" class="btn-icon" aria-label="View property"><svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+        </div>
+      </article>
+
+      <!-- Card 5 -->
+      <article class="prop-card rent new">
+        <div class="prop-img" style="--img:url('https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&amp;fit=crop&amp;w=900&amp;q=80')">
+          <div class="badges"><span class="badge b-new">New</span><span class="badge b-rent">For Rent</span></div>
+          <label class="fav" aria-label="Save"><input type="checkbox"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></label>
+          <div class="img-meta"><span><svg viewBox="0 0 24 24"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>9</span><span>Near metro</span></div>
+        </div>
+        <div class="prop-body">
+          <div class="prop-price">₹28,000 <small>/ month</small></div>
+          <h3><a href="#">Sunlit Studio Suite</a></h3>
+          <p class="prop-loc"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Cyber City, Gurugram</p>
+          <ul class="prop-feats">
+            <li><svg viewBox="0 0 24 24"><path d="M2 20v-8a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v8"/><path d="M4 10V6a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v4"/><path d="M12 4v6"/><path d="M2 18h20"/></svg>1 Bed</li>
+            <li><svg viewBox="0 0 24 24"><path d="M9 6 6.5 3.5a1.5 1.5 0 0 0-1-.5C4.683 3 4 3.683 4 4.5V17a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-5"/><line x1="10" y1="5" x2="8" y2="7"/><line x1="2" y1="12" x2="22" y2="12"/><line x1="7" y1="19" x2="7" y2="21"/><line x1="17" y1="19" x2="17" y2="21"/></svg>1 Bath</li>
+            <li><svg viewBox="0 0 24 24"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/></svg>650 sqft</li>
+          </ul>
+        </div>
+        <div class="prop-foot">
+          <div class="agent-mini"><span class="av" style="--img:url('https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&amp;fit=crop&amp;w=120&amp;q=80')"></span><div><b>Karan Malhotra</b><small>Listed 3 days ago</small></div></div>
+          <a href="#" class="btn-icon" aria-label="View property"><svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+        </div>
+      </article>
+
+      <!-- Card 6 -->
+      <article class="prop-card sale new">
+        <div class="prop-img" style="--img:url('https://images.unsplash.com/photo-1564013799919-ab600027ffc6?auto=format&amp;fit=crop&amp;w=900&amp;q=80')">
+          <div class="badges"><span class="badge b-new">New Launch</span><span class="badge b-sale">For Sale</span></div>
+          <label class="fav" aria-label="Save"><input type="checkbox"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></label>
+          <div class="img-meta"><span><svg viewBox="0 0 24 24"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>15</span><span>Gated society</span></div>
+        </div>
+        <div class="prop-body">
+          <div class="prop-price">₹2.1 Cr <small>₹8,570 / sqft</small></div>
+          <h3><a href="#">Maple Heights Family Home</a></h3>
+          <p class="prop-loc"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Jubilee Hills, Hyderabad</p>
+          <ul class="prop-feats">
+            <li><svg viewBox="0 0 24 24"><path d="M2 20v-8a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v8"/><path d="M4 10V6a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v4"/><path d="M12 4v6"/><path d="M2 18h20"/></svg>3 Beds</li>
+            <li><svg viewBox="0 0 24 24"><path d="M9 6 6.5 3.5a1.5 1.5 0 0 0-1-.5C4.683 3 4 3.683 4 4.5V17a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-5"/><line x1="10" y1="5" x2="8" y2="7"/><line x1="2" y1="12" x2="22" y2="12"/><line x1="7" y1="19" x2="7" y2="21"/><line x1="17" y1="19" x2="17" y2="21"/></svg>3 Baths</li>
+            <li><svg viewBox="0 0 24 24"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/></svg>2,450 sqft</li>
+          </ul>
+        </div>
+        <div class="prop-foot">
+          <div class="agent-mini"><span class="av" style="--img:url('https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&amp;fit=crop&amp;w=120&amp;q=80')"></span><div><b>Sneha Iyer</b><small>Listed 4 days ago</small></div></div>
+          <a href="#" class="btn-icon" aria-label="View property"><svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+        </div>
+      </article>
+
+    </div>
+
+    <div class="center-cta">
+      <a href="#advanced" class="btn btn-outline">Browse all 2,400+ properties</a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= ADVANCED SEARCH ================= -->
+<section id="advanced" class="adv-search">
+  <div class="container">
+    <div class="section-head row">
+      <div>
+        <p class="eyebrow">Smart Search</p>
+        <h2>Filter exactly what you need</h2>
+      </div>
+      <p>Narrow down by budget, size, amenities and more — results update the moment you change a filter.</p>
+    </div>
+
+    <div class="adv-layout">
+      <!-- Filter sidebar -->
+      <aside class="filter-panel">
+        <div class="fp-head">
+          <h3><svg viewBox="0 0 24 24"><line x1="4" y1="21" x2="4" y2="14"/><line x1="4" y1="10" x2="4" y2="3"/><line x1="12" y1="21" x2="12" y2="12"/><line x1="12" y1="8" x2="12" y2="3"/><line x1="20" y1="21" x2="20" y2="16"/><line x1="20" y1="12" x2="20" y2="3"/><line x1="1" y1="14" x2="7" y2="14"/><line x1="9" y1="8" x2="15" y2="8"/><line x1="17" y1="16" x2="23" y2="16"/></svg> Filters</h3>
+          <a href="#advanced">Reset all</a>
+        </div>
+
+        <div class="fp-group">
+          <h4>Looking to</h4>
+          <div class="segmented">
+            <label><input type="radio" name="adv-mode" checked><span>Buy</span></label>
+            <label><input type="radio" name="adv-mode"><span>Rent</span></label>
+            <label><input type="radio" name="adv-mode"><span>Lease</span></label>
+          </div>
+        </div>
+
+        <div class="fp-group">
+          <h4>Property type</h4>
+          <div class="chips">
+            <label class="chip"><input type="checkbox" checked><span>Apartment</span></label>
+            <label class="chip"><input type="checkbox"><span>Villa</span></label>
+            <label class="chip"><input type="checkbox"><span>Row house</span></label>
+            <label class="chip"><input type="checkbox"><span>Plot</span></label>
+            <label class="chip"><input type="checkbox"><span>Office</span></label>
+            <label class="chip"><input type="checkbox"><span>Penthouse</span></label>
+          </div>
+        </div>
+
+        <div class="fp-group">
+          <h4>Budget <span>₹50 L – ₹5 Cr</span></h4>
+          <input type="range" class="range" min="0" max="100" value="55" aria-label="Maximum budget">
+          <div class="range-labels"><span>₹20 L</span><span>₹10 Cr+</span></div>
+        </div>
+
+        <div class="fp-group">
+          <h4>Bedrooms</h4>
+          <div class="segmented">
+            <label><input type="radio" name="adv-bhk"><span>1</span></label>
+            <label><input type="radio" name="adv-bhk"><span>2</span></label>
+            <label><input type="radio" name="adv-bhk" checked><span>3</span></label>
+            <label><input type="radio" name="adv-bhk"><span>4</span></label>
+            <label><input type="radio" name="adv-bhk"><span>5+</span></label>
+          </div>
+        </div>
+
+        <div class="fp-group">
+          <h4>Amenities</h4>
+          <label class="check"><input type="checkbox" checked><span></span>Swimming pool</label>
+          <label class="check"><input type="checkbox" checked><span></span>Covered parking</label>
+          <label class="check"><input type="checkbox"><span></span>Gym &amp; clubhouse</label>
+          <label class="check"><input type="checkbox"><span></span>24×7 security</label>
+          <label class="check"><input type="checkbox"><span></span>Power backup</label>
+        </div>
+
+        <button type="button" class="btn btn-dark btn-block">Show 248 results</button>
+      </aside>
+
+      <!-- Results -->
+      <div class="results">
+        <div class="results-bar">
+          <p><b>248</b> properties found in <b>Mumbai</b></p>
+          <label class="sort">Sort by
+            <select>
+              <option>Newest first</option><option>Price: low to high</option>
+              <option>Price: high to low</option><option>Most popular</option>
+            </select>
+          </label>
+        </div>
+
+        <div class="active-filters">
+          <span>Apartment <i>×</i></span>
+          <span>3 BHK <i>×</i></span>
+          <span>₹50 L – ₹5 Cr <i>×</i></span>
+          <span>Swimming pool <i>×</i></span>
+          <span>Covered parking <i>×</i></span>
+        </div>
+
+        <article class="list-card">
+          <div class="list-img" style="--img:url('https://images.unsplash.com/photo-1580587771525-78b9dba3b914?auto=format&amp;fit=crop&amp;w=700&amp;q=80')">
+            <span class="badge b-feat">★ Featured</span>
+          </div>
+          <div class="list-body">
+            <div class="list-top">
+              <div>
+                <h3><a href="#">Seaview 3 BHK Residence</a></h3>
+                <p class="prop-loc"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Worli, Mumbai</p>
+              </div>
+              <div class="list-price">₹3.4 Cr<small>₹18,380 / sqft</small></div>
+            </div>
+            <p class="desc">Sea-facing home on the 22nd floor with a wraparound balcony, modular kitchen and a private lift lobby.</p>
+            <ul class="list-feats">
+              <li><svg viewBox="0 0 24 24"><path d="M2 20v-8a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v8"/><path d="M4 10V6a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v4"/><path d="M12 4v6"/><path d="M2 18h20"/></svg>3 Beds</li>
+              <li><svg viewBox="0 0 24 24"><path d="M9 6 6.5 3.5a1.5 1.5 0 0 0-1-.5C4.683 3 4 3.683 4 4.5V17a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-5"/><line x1="10" y1="5" x2="8" y2="7"/><line x1="2" y1="12" x2="22" y2="12"/><line x1="7" y1="19" x2="7" y2="21"/><line x1="17" y1="19" x2="17" y2="21"/></svg>3 Baths</li>
+              <li><svg viewBox="0 0 24 24"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/></svg>1,850 sqft</li>
+              <li class="li-btn"><a href="#" class="btn btn-dark btn-sm">View details</a></li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="list-card">
+          <div class="list-img" style="--img:url('https://images.unsplash.com/photo-1568605114967-8130f3a36994?auto=format&amp;fit=crop&amp;w=700&amp;q=80')">
+            <span class="badge b-sale">Verified</span>
+          </div>
+          <div class="list-body">
+            <div class="list-top">
+              <div>
+                <h3><a href="#">Green Valley Row House</a></h3>
+                <p class="prop-loc"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Powai, Mumbai</p>
+              </div>
+              <div class="list-price">₹2.75 Cr<small>₹13,100 / sqft</small></div>
+            </div>
+            <p class="desc">Lake-side row house with a private garden, terrace sit-out and access to a members-only clubhouse.</p>
+            <ul class="list-feats">
+              <li><svg viewBox="0 0 24 24"><path d="M2 20v-8a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v8"/><path d="M4 10V6a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v4"/><path d="M12 4v6"/><path d="M2 18h20"/></svg>3 Beds</li>
+              <li><svg viewBox="0 0 24 24"><path d="M9 6 6.5 3.5a1.5 1.5 0 0 0-1-.5C4.683 3 4 3.683 4 4.5V17a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-5"/><line x1="10" y1="5" x2="8" y2="7"/><line x1="2" y1="12" x2="22" y2="12"/><line x1="7" y1="19" x2="7" y2="21"/><line x1="17" y1="19" x2="17" y2="21"/></svg>4 Baths</li>
+              <li><svg viewBox="0 0 24 24"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/></svg>2,100 sqft</li>
+              <li class="li-btn"><a href="#" class="btn btn-dark btn-sm">View details</a></li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="list-card">
+          <div class="list-img" style="--img:url('https://images.unsplash.com/photo-1570129477492-45c003edd2be?auto=format&amp;fit=crop&amp;w=700&amp;q=80')">
+            <span class="badge b-new">Price drop</span>
+          </div>
+          <div class="list-body">
+            <div class="list-top">
+              <div>
+                <h3><a href="#">Heritage Courtyard Bungalow</a></h3>
+                <p class="prop-loc"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Juhu, Mumbai</p>
+              </div>
+              <div class="list-price">₹4.9 Cr<small>₹15,800 / sqft</small></div>
+            </div>
+            <p class="desc">Restored independent bungalow, five minutes from the beach, with a central courtyard and two-car parking.</p>
+            <ul class="list-feats">
+              <li><svg viewBox="0 0 24 24"><path d="M2 20v-8a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v8"/><path d="M4 10V6a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v4"/><path d="M12 4v6"/><path d="M2 18h20"/></svg>4 Beds</li>
+              <li><svg viewBox="0 0 24 24"><path d="M9 6 6.5 3.5a1.5 1.5 0 0 0-1-.5C4.683 3 4 3.683 4 4.5V17a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-5"/><line x1="10" y1="5" x2="8" y2="7"/><line x1="2" y1="12" x2="22" y2="12"/><line x1="7" y1="19" x2="7" y2="21"/><line x1="17" y1="19" x2="17" y2="21"/></svg>4 Baths</li>
+              <li><svg viewBox="0 0 24 24"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/></svg>3,100 sqft</li>
+              <li class="li-btn"><a href="#" class="btn btn-dark btn-sm">View details</a></li>
+            </ul>
+          </div>
+        </article>
+
+        <nav class="pagination" aria-label="Pagination">
+          <a href="#advanced">‹</a>
+          <a href="#advanced" class="active">1</a>
+          <a href="#advanced">2</a>
+          <a href="#advanced">3</a>
+          <a href="#advanced">…</a>
+          <a href="#advanced">25</a>
+          <a href="#advanced">›</a>
+        </nav>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= STATS BAND ================= -->
+<section class="stats-band">
+  <div class="container">
+    <div class="stats-inner">
+      <div class="stat"><strong>12,000+</strong><span>Families moved in</span></div>
+      <div class="stat"><strong>₹2,500 Cr</strong><span>Worth of property sold</span></div>
+      <div class="stat"><strong>150+</strong><span>Certified agents</span></div>
+      <div class="stat"><strong>35</strong><span>Cities across India</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= AGENTS ================= -->
+<section id="agents" class="agents">
+  <div class="container">
+    <div class="section-head row">
+      <div>
+        <p class="eyebrow">Our Agents</p>
+        <h2>Meet our top-rated experts</h2>
+      </div>
+      <a href="#contact" class="link">View all agents
+        <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </a>
+    </div>
+
+    <div class="agent-grid">
+      <article class="agent-card">
+        <div class="agent-photo" style="--img:url('https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&amp;fit=crop&amp;w=600&amp;q=80')">
+          <span class="verified"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Verified</span>
+          <div class="agent-social">
+            <a href="#" aria-label="Call"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></a>
+            <a href="#" aria-label="Email"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></a>
+            <a href="#" aria-label="Chat"><svg viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg></a>
+          </div>
+        </div>
+        <div class="agent-body">
+          <h3>Rahul Khanna</h3>
+          <p class="role">Senior Property Advisor · Mumbai</p>
+          <div class="agent-stats">
+            <div><b>4.9★</b><span>Rating</span></div>
+            <div><b>86</b><span>Listings</span></div>
+            <div><b>9 yrs</b><span>Experience</span></div>
+          </div>
+          <a href="#contact" class="btn btn-outline btn-block">Contact Agent</a>
+        </div>
+      </article>
+
+      <article class="agent-card">
+        <div class="agent-photo" style="--img:url('https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&amp;fit=crop&amp;w=600&amp;q=80')">
+          <span class="verified"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Verified</span>
+          <div class="agent-social">
+            <a href="#" aria-label="Call"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></a>
+            <a href="#" aria-label="Email"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></a>
+            <a href="#" aria-label="Chat"><svg viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg></a>
+          </div>
+        </div>
+        <div class="agent-body">
+          <h3>Sneha Iyer</h3>
+          <p class="role">Luxury Homes Specialist · Bengaluru</p>
+          <div class="agent-stats">
+            <div><b>5.0★</b><span>Rating</span></div>
+            <div><b>64</b><span>Listings</span></div>
+            <div><b>7 yrs</b><span>Experience</span></div>
+          </div>
+          <a href="#contact" class="btn btn-outline btn-block">Contact Agent</a>
+        </div>
+      </article>
+
+      <article class="agent-card">
+        <div class="agent-photo" style="--img:url('https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&amp;fit=crop&amp;w=600&amp;q=80')">
+          <span class="verified"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Verified</span>
+          <div class="agent-social">
+            <a href="#" aria-label="Call"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></a>
+            <a href="#" aria-label="Email"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></a>
+            <a href="#" aria-label="Chat"><svg viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg></a>
+          </div>
+        </div>
+        <div class="agent-body">
+          <h3>Karan Malhotra</h3>
+          <p class="role">Commercial Expert · Gurugram</p>
+          <div class="agent-stats">
+            <div><b>4.8★</b><span>Rating</span></div>
+            <div><b>112</b><span>Listings</span></div>
+            <div><b>12 yrs</b><span>Experience</span></div>
+          </div>
+          <a href="#contact" class="btn btn-outline btn-block">Contact Agent</a>
+        </div>
+      </article>
+
+      <article class="agent-card">
+        <div class="agent-photo" style="--img:url('https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&amp;fit=crop&amp;w=600&amp;q=80')">
+          <span class="verified"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Verified</span>
+          <div class="agent-social">
+            <a href="#" aria-label="Call"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></a>
+            <a href="#" aria-label="Email"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></a>
+            <a href="#" aria-label="Chat"><svg viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg></a>
+          </div>
+        </div>
+        <div class="agent-body">
+          <h3>Meera Joshi</h3>
+          <p class="role">Rental Specialist · Pune</p>
+          <div class="agent-stats">
+            <div><b>4.9★</b><span>Rating</span></div>
+            <div><b>73</b><span>Listings</span></div>
+            <div><b>6 yrs</b><span>Experience</span></div>
+          </div>
+          <a href="#contact" class="btn btn-outline btn-block">Contact Agent</a>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CTA / CONTACT ================= -->
+<section id="contact" class="cta">
+  <div class="container">
+    <div class="cta-box" style="--img:url('https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&amp;fit=crop&amp;w=1600&amp;q=80')">
+      <div class="cta-text">
+        <p class="eyebrow">Get in touch</p>
+        <h2>Ready to find your dream home?</h2>
+        <p>Tell us what you're looking for and a dedicated agent will call you with handpicked options — usually within the hour.</p>
+        <ul class="cta-points">
+          <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Zero brokerage options</li>
+          <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Free site visits</li>
+          <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Home loan assistance</li>
+        </ul>
+      </div>
+
+      <form class="cta-form" action="#">
+        <h3>Free consultation</h3>
+        <p>Takes less than a minute.</p>
+        <div class="field-row">
+          <div class="field"><label for="c-name">Full name</label><input id="c-name" type="text" placeholder="Your name" required></div>
+          <div class="field"><label for="c-phone">Phone</label><input id="c-phone" type="tel" placeholder="+91 98765 43210" required></div>
+        </div>
+        <div class="field"><label for="c-email">Email</label><input id="c-email" type="email" placeholder="you@example.com"></div>
+        <div class="field-row">
+          <div class="field">
+            <label for="c-want">I want to</label>
+            <select id="c-want"><option>Buy a property</option><option>Rent a property</option><option>Sell my property</option></select>
+          </div>
+          <div class="field">
+            <label for="c-city">City</label>
+            <select id="c-city"><option>Mumbai</option><option>Bengaluru</option><option>Pune</option><option>Gurugram</option><option>Hyderabad</option><option>Goa</option></select>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-accent btn-block">Request a Call Back</button>
+        <p class="form-note">🔒 We never share your number with anyone.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <a href="#" class="logo">
+          <span class="logo-mark"><svg viewBox="0 0 24 24"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></span>
+          Urban<b>Nest</b>
+        </a>
+        <p>India's most trusted platform to buy, rent and sell verified homes. Real photos, real prices, real people.</p>
+        <div class="socials">
+          <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+          <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+          <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+          <a href="#" aria-label="YouTube"><svg viewBox="0 0 24 24"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"/><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"/></svg></a>
+        </div>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <ul>
+          <li><a href="#">About us</a></li>
+          <li><a href="#agents">Our agents</a></li>
+          <li><a href="#">Careers</a></li>
+          <li><a href="#">Blog &amp; guides</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Popular cities</h4>
+        <ul>
+          <li><a href="#">Mumbai</a></li>
+          <li><a href="#">Bengaluru</a></li>
+          <li><a href="#">Pune</a></li>
+          <li><a href="#">Gurugram</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Get new listings first</h4>
+        <p>Weekly handpicked properties in your inbox. No spam, ever.</p>
+        <form class="newsletter" action="#">
+          <input type="email" placeholder="Your email address" aria-label="Email address">
+          <button type="submit">Subscribe</button>
+        </form>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 UrbanNest Realty. All rights reserved.</p>
+      <div><a href="#">Privacy</a><a href="#">Terms</a><a href="#">Sitemap</a></div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
